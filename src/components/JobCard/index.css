@@ -1,0 +1,160 @@
+.job-card-container {
+  background-color: #272727;
+  border-radius: 15px;
+}
+
+.jobItemDetails-link {
+  text-decoration: none;
+}
+
+.job-item-container {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.job-logo-title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.company-logo {
+  width: 55px;
+  height: 55px;
+}
+
+.title-rating-container {
+  padding: 0%;
+  margin-left: 10px;
+}
+
+.title {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0%;
+}
+
+.fill-star {
+  color: #fbbf24;
+  width: 20px;
+  height: 20px;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.rating {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0%;
+  margin-left: 5px;
+}
+
+.location-internship-package-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.location-internship-container {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.location-container,
+.internship-container {
+  display: flex;
+  align-items: center;
+}
+
+.briefcase-icon,
+.location-icon {
+  color: #ffffff;
+  width: 16px;
+  height: 16px;
+}
+
+.internship-text,
+.location-text {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 13px;
+  margin: 0%;
+  margin-left: 5px;
+}
+
+.package-text {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0%;
+}
+
+.job-description-heading {
+  font-family: 'Roboto';
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0%;
+}
+
+.job-description {
+  font-family: 'Roboto';
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@media screen and (min-width: 768px) {
+  .job-item-container {
+    padding: 15px;
+  }
+  .company-logo {
+    width: 60px;
+    height: 60px;
+  }
+  .title-rating-container {
+    margin-left: 15px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .fill-star {
+    width: 22px;
+    height: 22px;
+  }
+  .rating {
+    font-size: 19px;
+    margin-left: 7px;
+  }
+  .briefcase-icon,
+  .location-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .internship-text,
+  .location-text {
+    font-size: 15px;
+  }
+  .package-text {
+    font-size: 17px;
+  }
+  .job-description-heading {
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .job-description {
+    font-size: 16px;
+  }
+}

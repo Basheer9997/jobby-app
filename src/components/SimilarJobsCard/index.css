@@ -1,0 +1,9 @@
+.similar-job-item {
+  width: 350px;
+}
+
+.similar-job-container {
+  background-color: #272727;
+  border-radius: 15px;
+  padding: 12px;
+}
