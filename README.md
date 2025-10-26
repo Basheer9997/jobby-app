@@ -12,6 +12,7 @@ The application integrates with external APIs to fetch data such as user profile
   - Employment Type (Full Time, Part Time, Internship, Freelance)
   - Salary Range
   - Search by job title
+  - Locations (Hyderabad, Bangalore, Chennai, Delhi and Mumbai)
 - **Job Details:** Each job has a dedicated details page showing:
   - Company information
   - Job description

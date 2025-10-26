@@ -38,12 +38,37 @@ const salaryRangesList = [
   },
 ]
 
+const jobLocationsList = [
+  {
+    locationId: 'HYDERABAD',
+    label: 'Hyderabad',
+  },
+  {
+    locationId: 'BANGALORE',
+    label: 'Bangalore',
+  },
+  {
+    locationId: 'CHENNAI',
+    label: 'Chennai',
+  },
+  {
+    locationId: 'DELHI',
+    label: 'Delhi',
+  },
+  {
+    locationId: 'MUMBAI',
+    label: 'Mumbai',
+  },
+]
+
 const FiltersGroup = props => {
   const {
     updateActiveEmployment,
     updateActiveSalaryRange,
+    updateActiveLocation,
     activeEmploymentId,
     activeSalaryRangeId,
+    activeLocationsIds,
   } = props
 
   const handleEmploymentChange = event => {
@@ -52,6 +77,11 @@ const FiltersGroup = props => {
 
   const handleSalaryChange = event => {
     updateActiveSalaryRange(event.target.id)
+  }
+
+  const handleLocationChange = event => {
+    console.log(event.target.value)
+    updateActiveLocation(event.target.id)
   }
 
   const renderEmploymentTypesList = () => (
@@ -109,12 +139,37 @@ const FiltersGroup = props => {
     </>
   )
 
-  return (
+  const renderJobLocationsList = () => (
     <>
+      <h1 className="filter-heading">Locations</h1>
+      <ul className="filter-list-container">
+        {jobLocationsList.map(eachLocation => (
+          <li className="filter-list-item" key={eachLocation.locationId}>
+            <input
+              type="checkbox"
+              id={eachLocation.locationId}
+              value={eachLocation.label}
+              className="filter-input"
+              onChange={handleLocationChange}
+              checked={activeLocationsIds.includes(eachLocation.locationId)}
+            />
+            <label className="filter-label" htmlFor={eachLocation.locationId}>
+              {eachLocation.label}
+            </label>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+
+  return (
+    <div className="filters-container">
       {renderEmploymentTypesList()}
       <hr className="hr-line" />
       {renderSalaryRangesList()}
-    </>
+      <hr className="hr-line" />
+      {renderJobLocationsList()}
+    </div>
   )
 }
 

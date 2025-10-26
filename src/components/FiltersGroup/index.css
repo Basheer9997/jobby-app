@@ -1,3 +1,16 @@
+/* .filters-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+} */
+
+.filters-container {
+  position: sticky;
+  top: 100px; /* or any distance from the top like 20px */
+  align-self: flex-start; /* helps when using flex layout */
+  z-index: 1000; /* keeps it above other elements */
+}
+
 .filter-heading {
   color: #f8fafc;
   font-family: 'Roboto';

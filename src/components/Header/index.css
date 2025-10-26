@@ -2,6 +2,9 @@
   background-color: #272727;
   padding-top: 15px;
   padding-bottom: 15px;
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
 }
 .navbar-container {
   width: 90%;

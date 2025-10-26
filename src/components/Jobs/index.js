@@ -25,6 +25,7 @@ class Jobs extends Component {
     activeEmploymentId: [],
     activeSalaryRangeId: '',
     searchInput: '',
+    activeLocationsIds: [],
   }
 
   componentDidMount() {
@@ -46,6 +47,19 @@ class Jobs extends Component {
       {activeEmploymentId: updateEmploymentList},
       this.getJobDetails,
     )
+  }
+
+  updateActiveLocation = locationId => {
+    const {activeLocationsIds} = this.state
+    let updateLocationsIds = activeLocationsIds
+    if (activeLocationsIds.includes(locationId)) {
+      updateLocationsIds = activeLocationsIds.filter(
+        eachLocationId => eachLocationId !== locationId,
+      )
+    } else {
+      updateLocationsIds = [...activeLocationsIds, locationId]
+    }
+    this.setState({activeLocationsIds: updateLocationsIds})
   }
 
   updateActiveSalaryRange = salaryId => {
@@ -151,6 +165,7 @@ class Jobs extends Component {
       profileApiStatus,
       activeEmploymentId,
       activeSalaryRangeId,
+      activeLocationsIds,
     } = this.state
     return (
       <div className="profile-FiltersGroup-container">
@@ -163,8 +178,10 @@ class Jobs extends Component {
         <FiltersGroup
           updateActiveEmployment={this.updateActiveEmployment}
           updateActiveSalaryRange={this.updateActiveSalaryRange}
+          updateActiveLocation={this.updateActiveLocation}
           activeEmploymentId={activeEmploymentId}
           activeSalaryRangeId={activeSalaryRangeId}
+          activeLocationsIds={activeLocationsIds}
         />
       </div>
     )
@@ -191,12 +208,23 @@ class Jobs extends Component {
   )
 
   renderJobsSuccessView = () => {
-    const {jobsDetailsList} = this.state
+    const {jobsDetailsList, activeLocationsIds} = this.state
+    const updatedJobsDetailsList =
+      activeLocationsIds.length === 0
+        ? jobsDetailsList
+        : jobsDetailsList.filter(eachJob =>
+            activeLocationsIds.some(
+              loc => loc.toLowerCase() === eachJob.location.toLowerCase(),
+            ),
+          )
+
+    console.log(updatedJobsDetailsList)
+
     return (
       <>
-        {jobsDetailsList.length > 0 ? (
+        {updatedJobsDetailsList.length > 0 ? (
           <ul className="jobs-details-list-container">
-            {jobsDetailsList.map(eachJob => (
+            {updatedJobsDetailsList.map(eachJob => (
               <JobCard key={eachJob.id} jobDetails={eachJob} />
             ))}
           </ul>
